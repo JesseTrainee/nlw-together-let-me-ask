@@ -1,6 +1,7 @@
+import { useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../App";
 
-import { auth, firebase } from '../../service/firebase';
 import googleIconImg from "../../assets/img/google-icon.svg";
 import illustationImg from "../../assets/img/illustration.svg";
 import logoImg from "../../assets/img/logo.svg";
@@ -9,16 +10,13 @@ import { Button } from "../../compoments/Button";
 import './styles.scss';
 export function Home() {
   const history = useHistory();
+  const { user, signInWithGoogle } = useContext(AuthContext);
 
-  function handleCreateRoom(){
-    const provider = new firebase.auth.GoogleAuthProvider();
-
-    auth.signInWithPopup(provider).then(result => {
-      
-      history.push('/rooms/new');
-    })
-
-    
+  async function handleCreateRoom(){
+    if(!user){
+      await signInWithGoogle();
+    }
+    history.push('/rooms/new');
   }  
 
   return (
@@ -38,7 +36,7 @@ export function Home() {
             <img src={googleIconImg} alt="Logo da Google" />
             Crie sua sala com o Google
           </button>
-          <div className="separator">out entre em uma sala</div>
+          <div className="separator">ou entre em uma sala</div>
           <form>
             <input type="text" placeholder="Digite o código da sala" />
             <Button type="submit">Entrar na sala</Button>
