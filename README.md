@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img alt="Letmeask" src=".github/logo.svg" width="160px">
+  <img alt="Letmeask" src="https://github.com/rocketseat-education/nlw-06-reactjs/blob/master/.github/logo.svg" width="160px">
 </p>
 
 <p align="center">
@@ -12,7 +12,7 @@
 </p>
 
 <h1 align="center">
-    <img alt="Letmeask" src=".github/cover.svg" />
+    <img alt="Letmeask" src="https://github.com/rocketseat-education/nlw-06-reactjs/blob/master/.github/cover.svg" />
 </h1>
 
 <br>
