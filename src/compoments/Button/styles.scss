@@ -1,8 +1,10 @@
+@import "../../styles/global.scss";
+
 .button {
     height: 50px;
     border-radius: 8px;
     font-weight: 500;
-    background: #835afd;
+    background: $base-color;
     color: #FFF;
     padding: 0 32px;
   
@@ -18,12 +20,18 @@
     img {
       margin-right: 8px;
     }
+
+    &.outlined {
+      background: #FFF;
+      border: 1px solid $base-color;
+      color: $base-color; 
+    }
   
-    &:not(:disabled):hover {
+    &:not(:disabled):hover { //se o botão não estiver desabilitado
       filter: brightness(0.9);
     }
   
-    &:disabled {
+    &:disabled { // se o botão estiver desabilitado
       opacity: 0.6;
       cursor: not-allowed;
     }

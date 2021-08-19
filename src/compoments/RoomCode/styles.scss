@@ -1,17 +1,19 @@
+@import '../../styles/global.scss';
+
 .room-code {
   height: 40px;
   border-radius: 8px;
   overflow: hidden;
   
   background: #FFF;
-  border: 1px solid #835afd;
+  border: 1px solid $base-color;
   cursor: pointer;
   
   display: flex;
 
   div {
-    background: #835afd;
-    padding: 10px 12px;
+    background:$base-color;
+    padding: 14px 12px;
     display: flex;
     justify-content: center;
     align-items: center;

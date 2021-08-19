@@ -1,3 +1,5 @@
+@import '../../styles/global.scss';
+
 .question{
     background: #fefefe;
     border-radius: 8px;
@@ -33,6 +35,32 @@
           margin-left: 8px;
           color: #737380;
           font-size: 14px;
+        }
+      }
+
+      button{
+        border:0;
+        background: transparent;
+        cursor: pointer;
+        transition:filter 0.2s;
+
+        &.like-button {
+          display: flex;
+          align-items: flex-end;
+          color:#737380;
+          gap: 8px;
+
+          &.liked {
+            color:$base-color;
+
+            svg path {
+              stroke: $base-color;
+            }
+          }
+        }
+
+        &.hover {
+          filter: brightness(0.7);
         }
       }
 }
