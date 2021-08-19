@@ -1,4 +1,4 @@
-import { FormEvent, useContext } from "react";
+import { FormEvent, useState} from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -6,11 +6,9 @@ import googleIconImg from "../../assets/img/google-icon.svg";
 import illustationImg from "../../assets/img/illustration.svg";
 import logoImg from "../../assets/img/logo.svg";
 import { Button } from "../../compoments/Button";
+import { database } from "../../service/firebase";
 
 import './styles.scss';
-import { useState } from "react";
-import { EventEmitter } from "stream";
-import { database } from "../../service/firebase";
 export function Home() {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
@@ -36,6 +34,12 @@ export function Home() {
       alert('Room does not exists');
       return;
     }
+
+    if(roomRef.val().endedAt){
+      alert('Room already closed.');
+      return;
+    }
+    history.push(`/rooms/${roomCode}`);
   }
 
   return (
