@@ -53,6 +53,11 @@ type QuestionType = {
           setTitle(databaseRoom.title);
           setQuestions(parsedQuestions);
         })
+
+        return () => {
+          roomRef.off('value');
+        }
+        
       },[roomId, user?.id]);
       return { questions, title}
   }
