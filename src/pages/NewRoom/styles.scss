@@ -78,6 +78,16 @@
         button, input {
           width: 100%;
         }
+
+        .btn-logout {
+          background: transparent;
+          border:none;
+          cursor: pointer;
+
+          &:hover{
+            filter: brightness(0.9);
+          }
+        }
       }
   
       p {

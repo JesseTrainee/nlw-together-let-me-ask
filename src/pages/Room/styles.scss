@@ -112,6 +112,18 @@
       }
       .question-list{
         margin-top: 32px;
+
+        .empty-questions{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          >img {
+            min-width: 12vw;
+            min-height: 12vh;
+          }          
+        }
       }
     }
   }

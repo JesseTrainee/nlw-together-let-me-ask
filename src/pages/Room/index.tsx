@@ -1,7 +1,10 @@
-import { FormEvent, useEffect } from "react";
+import { FormEvent} from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+
 import logoImg from "../../assets/img/logo.svg";
+import emptyQuestionsImg from '../../assets/img/empty-questions.svg';
+
 import { Button } from "../../compoments/Button";
 import { Question } from "../../compoments/Question";
 import { RoomCode } from "../../compoments/RoomCode";
@@ -102,7 +105,8 @@ export function Room() {
           </div>
         </form>
         <div className="question-list">
-          {questions.map((question) => {
+          { questions.length > 0 ?
+          questions.map((question) => {
             return (
               <Question
                 key={question.id}
@@ -142,7 +146,14 @@ export function Room() {
                 )}
               </Question>
             );
-          })}
+          })
+        :
+        <div className="empty-questions">
+          <img src={emptyQuestionsImg} alt="nenhuma pergunta feita"/>
+          <h3>Nenhuma pergunta por aqui...</h3>
+          <p>Envie o código desta sala para seus amigos e comece a responder perguntas!</p>
+        </div>
+        }
         </div>
       </main>
     </div>

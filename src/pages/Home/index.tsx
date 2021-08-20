@@ -6,10 +6,9 @@ import googleIconImg from "../../assets/img/google-icon.svg";
 import illustationImg from "../../assets/img/illustration.svg";
 import logoImg from "../../assets/img/logo.svg";
 import { Button } from "../../compoments/Button";
-import { auth, database } from "../../service/firebase";
+import { database } from "../../service/firebase";
 
 import './styles.scss';
-import { AuthContextProvider } from "../../context/AuthContext";
 export function Home() {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
@@ -69,6 +68,7 @@ export function Home() {
             value={roomCode}
             />
             <Button type="submit">
+              
               Entrar na sala
             </Button>
           </form>
