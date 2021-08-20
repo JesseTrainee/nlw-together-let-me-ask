@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { database } from '../../service/firebase';
+import { database, auth } from '../../service/firebase';
 import illustationImg from "../../assets/img/illustration.svg";
 import logoImg from "../../assets/img/logo.svg";
 import { Button } from "../../compoments/Button";
@@ -10,7 +10,11 @@ export function NewRoom() {
   const { user } = useAuth()
   const history = useHistory();
   const [newRoom,setNewRoom] = useState('');
-
+  
+  async function handleLogout(){
+    auth.signOut();
+    history.push('/')
+  }
   async function handleCreateRoom(event: FormEvent){
     event.preventDefault();
 
@@ -46,6 +50,11 @@ export function NewRoom() {
             <Button type="submit">Criar sala</Button>
           </form>
           <p>Quer entrar em uma sala existente? <Link to="/">clique aqui</Link></p>
+          
+            <Button onClick={handleLogout}>
+              Trocar de conta
+            </Button>
+       
         </div>
       </main>
     </div>
