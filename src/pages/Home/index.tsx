@@ -7,19 +7,21 @@ import illustationImg from "../../assets/img/illustration.svg";
 import logoImg from "../../assets/img/logo.svg";
 import { Button } from "../../compoments/Button";
 import toast, { Toaster } from 'react-hot-toast';
-import { database } from "../../service/firebase";
+import { database, auth } from "../../service/firebase";
 
 import './styles.scss';
 export function Home() {
   const history = useHistory();
-  const { user, signInWithGoogle } = useAuth();
+  const { signInWithGoogle } = useAuth();
   const [roomCode,setRoomCode] = useState('')
 
   async function handleCreateRoom(){
-    if(!user){
-      await signInWithGoogle();
-    }
-    history.push('/rooms/new');
+    auth.onAuthStateChanged(async function(user) {
+      if(!user){
+        await signInWithGoogle();
+      }
+      history.push('/rooms/new');
+    })
   }  
 
  
