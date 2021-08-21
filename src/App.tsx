@@ -1,15 +1,17 @@
 import {AuthContextProvider} from '../src/context/AuthContext';
 import { Routes } from "./utils/routes";
 import "./styles/global.scss";
-
+import {ThemeProvider} from '../src/context/ThemeContext'
 function App() {
 
 
   return (
     <div className="App">
-      <AuthContextProvider>
-        <Routes />
-      </AuthContextProvider>
+      <ThemeProvider>
+        <AuthContextProvider>
+          <Routes />
+        </AuthContextProvider>
+      </ThemeProvider>
     </div>
   );
 }
