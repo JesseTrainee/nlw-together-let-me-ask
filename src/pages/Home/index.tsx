@@ -1,4 +1,4 @@
-import { FormEvent, useState} from "react";
+import { FormEvent, useState,} from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -6,32 +6,37 @@ import googleIconImg from "../../assets/img/google-icon.svg";
 import illustationImg from "../../assets/img/illustration.svg";
 import logoImg from "../../assets/img/logo.svg";
 import { Button } from "../../compoments/Button";
-import { database } from "../../service/firebase";
+import toast, { Toaster } from 'react-hot-toast';
+import { database, auth } from "../../service/firebase";
 
 import './styles.scss';
 export function Home() {
   const history = useHistory();
-  const { user, signInWithGoogle } = useAuth();
+  const { signInWithGoogle } = useAuth();
   const [roomCode,setRoomCode] = useState('')
 
   async function handleCreateRoom(){
-    if(!user){
-      await signInWithGoogle();
-    }
-    history.push('/rooms/new');
+    auth.onAuthStateChanged(async function(user) {
+      if(!user){
+        await signInWithGoogle();
+      }
+      history.push('/rooms/new');
+    })
   }  
 
+ 
   async function handleJoinRoom(event: FormEvent){
     event.preventDefault();
 
     if(roomCode.trim() === ''){
-      return;
+      toast.error('Campo vazio')
+      return  ;
     }
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if(!roomRef.exists()){
-      alert('Room does not exists');
+      toast.error("Sala não existente");
       return;
     }
 
@@ -44,6 +49,7 @@ export function Home() {
 
   return (
     <div id="page-auth">
+      <Toaster />
       <aside>
         <img
           src={illustationImg}
@@ -68,7 +74,7 @@ export function Home() {
             value={roomCode}
             />
             <Button type="submit">
-              
+
               Entrar na sala
             </Button>
           </form>

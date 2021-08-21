@@ -7,13 +7,13 @@ import { Button } from "../../compoments/Button";
 import { useAuth } from '../../hooks/useAuth';
 import './styles.scss';
 export function NewRoom() {
-  const { user } = useAuth()
+  const { user } = useAuth();
   const history = useHistory();
   const [newRoom,setNewRoom] = useState('');
   
   async function handleLogout(){
-    auth.signOut();
-    history.push('/')
+    await auth.signOut();
+    history.push('/');
   }
   async function handleCreateRoom(event: FormEvent){
     event.preventDefault();
