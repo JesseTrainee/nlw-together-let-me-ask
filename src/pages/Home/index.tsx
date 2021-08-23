@@ -1,7 +1,6 @@
 import { FormEvent, useState,} from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-
 import googleIconImg from "../../assets/img/google-icon.svg";
 import illustationImg from "../../assets/img/illustration.svg";
 import logoImg from "../../assets/img/logo.svg";
@@ -60,6 +59,7 @@ export function Home() {
       </aside>
       <main>
         <div className="main-content">
+          
           <img src={logoImg} alt="Letmeask" />
           <button onClick={handleCreateRoom} className="create-room">
             <img src={googleIconImg} alt="Logo da Google" />
@@ -74,9 +74,9 @@ export function Home() {
             value={roomCode}
             />
             <Button type="submit">
-
               Entrar na sala
             </Button>
+            
           </form>
         </div>
       </main>

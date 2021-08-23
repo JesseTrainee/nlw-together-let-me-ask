@@ -3,10 +3,11 @@ import { NewRoom } from "../pages/NewRoom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Room } from "../pages/Room";
 import { AdminRoom } from "../pages/AdminRoom";
-
+import { ToggleTheme } from "../compoments/ToggleTheme";
 export const Routes = () => {
   return (
     <BrowserRouter>
+      <ToggleTheme/>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/rooms/new" component={NewRoom} />

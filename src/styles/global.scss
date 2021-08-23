@@ -8,11 +8,19 @@ $border-color:#a8a8b3;
     box-sizing: border-box;
 }
 
+
 body{
     background-color: #f8f8f8;
     color: #29292e;
 }
 
+.dark {
+    background: #161E2D ;
+    color:#fff ;
+}
+// .dark strong,p {
+//     color:black;
+// }
 body,input,button,textarea{
     font:400 16px 'Roboto' , sans-serif;
 }
