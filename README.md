@@ -10,7 +10,8 @@
 </p>
 
 <h1 align="center">
-    <img alt="Letmeask" src="https://github.com/rocketseat-education/nlw-06-reactjs/blob/master/.github/cover.svg" />
+    <img alt="Letmeask" src="https://github.com/JesseTrainee/nlw-together-let-me-ask/blob/main/.github/page-home.png"  width="450" height="250px"/>
+   <img alt="Letmeask" src="https://github.com/JesseTrainee/nlw-together-let-me-ask/blob/main/.github/page-questions-dark%20mode.png"  width="450" height="250px"/>
 </h1>
 
 <br>
