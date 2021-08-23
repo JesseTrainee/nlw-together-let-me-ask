@@ -1,17 +1,33 @@
-import { useContext , FormEvent} from 'react'
-import { ThemeContext } from '../../context/ThemeContext';
-import './styles.scss'
+import { useContext, FormEvent } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
+import "./styles.scss";
+import Toggle from "react-toggle";
+import { useEffect } from "react";
 export const ToggleTheme = () => {
- const context = useContext(ThemeContext)
-  function toggle(event: FormEvent){
+  const context = useContext(ThemeContext);
+
+  function toggle(event: FormEvent) {
     event.preventDefault();
-    context.toggleThemeMode()
+    console.log(context.isClicked);
+    context.toggleThemeMode();
   }
-return (
-    
-    <button className="toggle-btn" onClick={(event) =>  toggle(event)}>
-       Trocar tema!
-    </button>
-    
-  )
-}
+
+  useEffect(() => {
+    console.log(context.isClicked);
+  },[])
+
+  return (
+    <>
+    <label>
+        <Toggle
+          defaultChecked={context.isClicked}
+          icons={{
+            checked: "🌞",
+            unchecked: "🌙",
+          }}
+          onChange={toggle}
+        />
+      </label>
+    </>
+  );
+};

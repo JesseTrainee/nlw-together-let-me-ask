@@ -31,12 +31,6 @@ export function NewRoom() {
 
     history.push(`/rooms/${firebaseRoom.key}`)
   }
-  async function handleSearchRoom(event: FormEvent){
-    event.preventDefault();
-
-    history.push(`/search/rooms/${user?.id}`)
-  }
-
   return (
     <div id="page-auth">
       <aside>
@@ -59,8 +53,7 @@ export function NewRoom() {
             </button>
           </form>
           <p>Quer entrar em uma sala existente? <Link to="/">clique aqui</Link></p>
-          <button onClick={handleSearchRoom}>Ver suas salas</button>
-       
+
         </div>
       </main>
     </div>

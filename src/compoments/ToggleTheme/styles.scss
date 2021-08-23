@@ -1,26 +1,15 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-.toggle-btn{
-    position: absolute;
-    width: 8vw;
-    height: 5vh;
-    border-radius: 25px;
-}
-
 .react-toggle {
     touch-action: pan-x;
   
     display: inline-block;
-    position: relative;
+    position: absolute;
     cursor: pointer;
     background-color: transparent;
     border: 0;
     padding: 0;
   
     -webkit-touch-callout: none;
-    -webkit-user-select: none;
+    -webkit-user-select: none; 
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -72,6 +61,7 @@
   }
   
   .react-toggle-track-check {
+    padding: 5px 0 0 0;
     position: absolute;
     width: 14px;
     height: 10px;
@@ -96,6 +86,7 @@
   
   .react-toggle-track-x {
     position: absolute;
+    padding: 5px 0 0 0;
     width: 10px;
     height: 10px;
     top: 0px;
