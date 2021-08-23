@@ -34,10 +34,10 @@
         margin-top: 16px;
         color: #f8f8f8;
       }
-      .dark p {
-        color: black;
-      }
-     
+      
+    }
+    .dark p{
+      color: black ;
     }
   
     main {
@@ -85,16 +85,23 @@
           width: 100%;
         }
 
+    
+
         .btn-logout {
           background: transparent;
           border:none;
           cursor: pointer;
 
+         
+
           &:hover{
             filter: brightness(0.9);
           }
         }
+
+        
       }
+      
   
       p {
         font-size: 14px;
@@ -107,4 +114,7 @@
       }
     }
    
+  }
+  .dark button {
+    color:#fff
   }

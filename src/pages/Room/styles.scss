@@ -135,6 +135,10 @@
           align-items: center;
           flex-direction: column;
 
+          .dark p{
+            color: #fff;
+          }
+
           >img {
             min-width: 12vw;
             min-height: 12vh;
