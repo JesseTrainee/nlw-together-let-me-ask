@@ -10,7 +10,7 @@ import { Question } from "../../compoments/Question";
 import { RoomCode } from "../../compoments/RoomCode";
 import { useAuth } from "../../hooks/useAuth";
 import { useRoom } from "../../hooks/useRoom";
-import { database } from "../../service/firebase";
+import { database , auth } from "../../service/firebase";
 import { Link } from 'react-router-dom';
 import "./styles.scss";
 
@@ -22,8 +22,17 @@ export function Room() {
   const [newQuestion, setNewQuestion] = useState("");
   const params = useParams<RoomParams>();
   const roomId = params.id;
-
+  const { signInWithGoogle } = useAuth();
   const { questions, title } = useRoom(roomId);
+
+  async function handleLogin(){
+    auth.onAuthStateChanged(async function(user) {
+      if(!user){
+        await signInWithGoogle();
+      }
+     
+    })
+  }
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -98,7 +107,7 @@ export function Room() {
               </div>
             ) : (
               <span>
-                Para enviar uma pergunta, <button>faça seu login</button>
+                Para enviar uma pergunta, <button onClick={handleLogin}>faça seu login</button>
               </span>
             )}
             <Button type="submit">Enviar pergunta</Button>

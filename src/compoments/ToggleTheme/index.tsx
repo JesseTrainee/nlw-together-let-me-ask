@@ -7,20 +7,15 @@ export const ToggleTheme = () => {
   const context = useContext(ThemeContext);
 
   function toggle(event: FormEvent) {
-    event.preventDefault();
-    console.log(context.isClicked);
     context.toggleThemeMode();
   }
 
-  useEffect(() => {
-    console.log(context.isClicked);
-  },[])
 
   return (
     <>
     <label>
         <Toggle
-          defaultChecked={context.isClicked}
+          defaultChecked={false}
           icons={{
             checked: "🌞",
             unchecked: "🌙",
